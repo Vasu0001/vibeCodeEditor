@@ -2,7 +2,6 @@
 
 VibeCode Editor is a full-stack browser IDE built with Next.js App Router, Monaco Editor, WebContainers, xterm.js, NextAuth, MongoDB, and Google Gemini. It gives users a dashboard for creating runnable playgrounds, a VS Code-like editor experience, an embedded terminal, live browser previews, GitHub repository import, and AI-assisted chat plus inline code suggestions.
 
-Repository: [github.com/Vasu0001/vibeCodeEditor](https://github.com/Vasu0001/vibeCodeEditor)
 
 ## Architecture
 
