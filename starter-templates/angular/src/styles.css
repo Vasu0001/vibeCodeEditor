@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #1f0f17;
+  color: #fff7ed;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
