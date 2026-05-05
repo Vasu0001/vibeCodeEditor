@@ -1,0 +1,88 @@
+import Link from "next/link";
+import Image from "next/image";
+import { ThemeToggle } from "@/components/ui/toggle-theme";
+import UserButton from "../auth/components/user-button";
+
+export function Header() {
+  return (
+    <>
+      <div className="sticky top-0 left-0 right-0 z-50">
+        <div className="w-full border-b border-slate-200 bg-white/85 backdrop-blur dark:border-zinc-800 dark:bg-[#080b12]/85">
+          <div className="flex items-center justify-center w-full flex-col">
+            <div
+              className={`
+                            flex items-center justify-between
+                            bg-transparent
+                            w-full sm:min-w-[800px] sm:max-w-[1200px]
+                            px-4 py-3
+                            relative
+                            transition-all duration-300 ease-in-out
+                        `}
+            >
+              <div className="relative z-10 flex items-center justify-between w-full gap-2">
+                <div className="flex items-center gap-6 justify-center">
+                  <Link
+                    href="/"
+                    className="flex items-center gap-2 justify-center"
+                  >
+                    <Image
+                      src={"/logo.svg"}
+                      alt="Logo"
+                      height={60}
+                      width={60}
+                    />
+
+                    <span className="hidden sm:block font-extrabold text-lg">
+                      VibeCode Editor
+                    </span>
+                  </Link>
+                  <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                  <div className="hidden sm:flex items-center gap-4">
+                    <Link
+                      href="/docs"
+                      className="text-sm font-medium text-slate-600 hover:text-slate-950 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                    >
+                      Docs
+                    </Link>
+                    <Link
+                      href="/api"
+                      className="text-sm font-medium text-slate-600 hover:text-slate-950 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                    >
+                      API
+                      <span className="text-green-500 dark:text-green-400 border border-green-500 dark:border-green-400 rounded-lg px-1 py-0.5 text-xs">
+                        New
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="hidden sm:flex items-center gap-3">
+                  <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                  <ThemeToggle />
+                  <UserButton/>
+                </div>
+
+                <div className="flex sm:hidden items-center gap-4">
+                  <Link
+                    href="/docs"
+                    className="text-sm font-medium text-slate-600 hover:text-slate-950 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                  >
+                    Docs
+                  </Link>
+                  <Link
+                    href="/api"
+                    className="text-sm font-medium text-slate-600 hover:text-slate-950 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                  >
+                    API
+                  </Link>
+                  <ThemeToggle />
+                  <UserButton/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
