@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,18 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Chrome, Github } from "lucide-react";
-import { signIn } from "@/auth";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
-
-async function handleGoogleSignIn(){
-"use server"
-await signIn("google")
-}
-
-async function handleGithubSignIn(){
-"use server"
-await signIn("github")
-}
 
 const SignInFormClient = () => {
   return (
@@ -35,18 +27,24 @@ const SignInFormClient = () => {
       </CardHeader>
 
       <CardContent className="grid gap-4">
-        <form action={handleGoogleSignIn}>
-          <Button type="submit" variant={"outline"} className="w-full">
-            <Chrome className="mr-2 h-4 w-4" />
-            <span>Sign in with google</span>
-          </Button>
-        </form>
-        <form action={handleGithubSignIn}>
-          <Button type="submit" variant={"outline"} className="w-full">
-            <Github className="mr-2 h-4 w-4" />
-            <span>Sign in with github</span>
-          </Button>
-        </form>
+        <Button
+          type="button"
+          variant="outline"
+          className="w-full"
+          onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+        >
+          <Chrome className="mr-2 h-4 w-4" />
+          <span>Sign in with Google</span>
+        </Button>
+        <Button
+          type="button"
+          variant="outline"
+          className="w-full"
+          onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
+        >
+          <Github className="mr-2 h-4 w-4" />
+          <span>Sign in with GitHub</span>
+        </Button>
       </CardContent>
 
       <CardFooter>
